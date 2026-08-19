@@ -318,7 +318,7 @@
       <span></span> Open to SWE · AI/ML Roles
     </div>
     <h1 class="hero-name">Aman Kumar</h1>
-    <p class="hero-sub">IIT Roorkee Graduate '26 &nbsp;·&nbsp; AI Engineer &nbsp;·&nbsp; Competitive Programmer</p>
+    <p class="hero-sub">IIT Roorkee Graduate &nbsp;·&nbsp; AI Engineer &nbsp;·&nbsp; Competitive Programmer</p>
     <p class="typewriter" id="typewriter"></p>
     <div class="hero-cta">
       <a href="#projects" class="btn-primary">
@@ -493,25 +493,44 @@
   <div class="container fade-up">
     <p class="section-label">Projects</p>
     <h2 class="section-title">Things I've Built</h2>
-    <p class="section-desc">End-to-end AI systems — from knowledge graphs to autonomous debugging agents.</p>
+    <p class="section-desc">Production AI systems — each one solving a real problem, shipped end-to-end.</p>
     <div class="projects-grid">
 
-      <div class="proj-card" onclick="window.open('https://github.com/452aman/crm_backend','_blank')">
-        <div class="proj-icon" style="background:rgba(79,142,247,0.12);">🏥</div>
-        <div class="proj-title">AI-First CRM — HCP Module</div>
+      <div class="proj-card" onclick="window.open('https://github.com/452aman/neemans-ai-intelligence','_blank')">
+        <div class="proj-icon" style="background:rgba(74,222,128,0.12);">📊</div>
+        <div class="proj-title">Neeman's AI Intelligence Suite</div>
         <p class="proj-desc">
-          Full-stack AI CRM for healthcare professionals. FastAPI backend with CRUD REST routes and a
-          LangGraph agent (gemma2-9b-it via Groq) — dual input modes (structured form + conversational chat)
-          both persisting to the same PostgreSQL database via SQLAlchemy ORM across 3 normalised tables.
-          React + Redux frontend with split-panel UI.
+          <strong style="color:var(--text);">Problem:</strong> Neeman's (D2C footwear brand) receives thousands of reviews across Shopify, Google, and Amazon with no systematic way to track sentiment shifts or detect emerging product complaints.<br><br>
+          Built a LangGraph agent that ingests reviews from all three sources, runs LLM-powered sentiment classification and issue categorisation, detects anomaly spikes, and surfaces a live Streamlit KPI dashboard with weekly AI-generated action summaries. Converts unstructured review noise into signals the team can act on — no manual reading required.
         </p>
         <div class="proj-tags">
-          <span class="proj-tag">FastAPI</span><span class="proj-tag">LangGraph</span>
-          <span class="proj-tag">Groq</span><span class="proj-tag">PostgreSQL</span>
-          <span class="proj-tag">React</span><span class="proj-tag">Redux</span>
+          <span class="proj-tag">Python</span><span class="proj-tag">LangGraph</span>
+          <span class="proj-tag">Groq (Llama 3.1)</span><span class="proj-tag">Streamlit</span>
+          <span class="proj-tag">Sentiment Analysis</span>
         </div>
         <div class="proj-links">
-          <a href="https://github.com/452aman" target="_blank" class="proj-link">
+          <a href="https://github.com/452aman/neemans-ai-intelligence" target="_blank" class="proj-link">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <span class="proj-link" style="color:var(--muted);cursor:default;">Aug 2026</span>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="window.open('https://github.com/452aman/crm_backend','_blank')">
+        <div class="proj-icon" style="background:rgba(79,142,247,0.12);">🤖</div>
+        <div class="proj-title">CRM Workflow Automation Agent</div>
+        <p class="proj-desc">
+          <strong style="color:var(--text);">Problem:</strong> Manual lead management — ingesting leads, classifying intent, routing priority, drafting follow-ups — was a high-effort repetitive process with no consistency.<br><br>
+          Built a stateful LangGraph multi-agent workflow that automates the full CRM pipeline end-to-end: intent classification, priority routing, and follow-up generation with tool calling. Owned the full stack: FastAPI backend with Pydantic-validated contracts, PostgreSQL schema, React dashboard consuming live agent output, and Render deployment. Manual operations reduced to zero for the entire pipeline.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span><span class="proj-tag">LangGraph</span>
+          <span class="proj-tag">FastAPI</span><span class="proj-tag">PostgreSQL</span>
+          <span class="proj-tag">React</span><span class="proj-tag">Render</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/452aman/crm_backend" target="_blank" class="proj-link">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
             GitHub
           </a>
@@ -519,43 +538,20 @@
         </div>
       </div>
 
-      <div class="proj-card" onclick="window.open('https://github.com/452aman','_blank')">
-        <div class="proj-icon" style="background:rgba(34,211,238,0.12);">⚙️</div>
-        <div class="proj-title">Autonomous Document Generation Agent</div>
+      <div class="proj-card" onclick="window.open('https://github.com/452aman/rag-doc-intelligence','_blank')">
+        <div class="proj-icon" style="background:rgba(34,211,238,0.12);">🧠</div>
+        <div class="proj-title">Document Intelligence RAG Platform</div>
         <p class="proj-desc">
-          FastAPI backend that accepts a plain English request and autonomously runs a 4-step pipeline:
-          document type classification → task planning → parallel section execution → self-reflection loop
-          (scores each section 1–10, rewrites below 7, up to 2 iterations). Returns a formatted .docx file.
-          Supports 7 auto-detected document types.
-        </p>
-        <div class="proj-tags">
-          <span class="proj-tag">FastAPI</span><span class="proj-tag">Groq LLM</span>
-          <span class="proj-tag">Pydantic</span><span class="proj-tag">python-docx</span>
-          <span class="proj-tag">Agentic AI</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/452aman" target="_blank" class="proj-link">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
-            GitHub
-          </a>
-          <span class="proj-link" style="color:var(--muted);cursor:default;">May – Jun 2025</span>
-        </div>
-      </div>
-
-      <div class="proj-card" onclick="window.open('https://github.com/452aman','_blank')">
-        <div class="proj-icon" style="background:rgba(79,142,247,0.12);">🧠</div>
-        <div class="proj-title">LightRAG Document Intelligence System</div>
-        <p class="proj-desc">
-          A document Q&A system that builds a dual-level knowledge graph (entity + relationship) over corpora via LightRAG.
-          Cuts LLM token consumption by ~65% vs. Microsoft GraphRAG. Backed by Neo4j + FAISS for multi-hop reasoning across large document sets.
+          <strong style="color:var(--text);">Problem:</strong> Enterprise document corpora are too large for keyword search, but simple vector search misses entity relationships buried across pages — leaving knowledge inaccessible.<br><br>
+          Architected a dual-index retrieval system: Neo4j knowledge graph for entity and relationship queries paired with FAISS for dense semantic search, with a query router selecting the right index per request. Built the full pipeline from PDF ingestion and HuggingFace embedding generation to Anthropic Claude-grounded responses with enforced source citations. Zero hallucinated references across 50+ page documents; sub-5-second query latency.
         </p>
         <div class="proj-tags">
           <span class="proj-tag">Python</span><span class="proj-tag">LightRAG</span>
           <span class="proj-tag">Neo4j</span><span class="proj-tag">FAISS</span>
-          <span class="proj-tag">Streamlit</span>
+          <span class="proj-tag">HuggingFace</span><span class="proj-tag">Streamlit</span>
         </div>
         <div class="proj-links">
-          <a href="https://github.com/452aman" target="_blank" class="proj-link">
+          <a href="https://github.com/452aman/rag-doc-intelligence" target="_blank" class="proj-link">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
             GitHub
           </a>
@@ -564,20 +560,19 @@
       </div>
 
       <div class="proj-card" onclick="window.open('https://github.com/452aman/code-review-agent','_blank')">
-        <div class="proj-icon" style="background:rgba(168,85,247,0.12);">🤖</div>
-        <div class="proj-title">Autonomous Code Review & Debug Agent</div>
+        <div class="proj-icon" style="background:rgba(168,85,247,0.12);">🔍</div>
+        <div class="proj-title">Autonomous Code Review Agent</div>
         <p class="proj-desc">
-          A CodeAct-style autonomous agent using smolagents and LangGraph that analyses code repos,
-          flags bugs and security vulnerabilities across 3 severity tiers, and self-corrects via a
-          multi-step ReAct reasoning loop — no human intervention required.
+          <strong style="color:var(--text);">Problem:</strong> Code review at scale is slow and inconsistent — severity judgments vary across reviewers and there is no auditable record of why a vulnerability was flagged.<br><br>
+          Built a multi-step LangGraph ReAct agent with distributed tool calling: sandboxed code execution, FAISS-powered documentation retrieval, and web-search for CVE context. A post-generation validation node cross-checks every severity assignment against an explicit rule set before output is surfaced — same input, same output, every run. Structured JSON audit reports generated in under 60 seconds per analysis.
         </p>
         <div class="proj-tags">
-          <span class="proj-tag">smolagents</span><span class="proj-tag">LangGraph</span>
-          <span class="proj-tag">FAISS</span><span class="proj-tag">HuggingFace</span>
+          <span class="proj-tag">Python</span><span class="proj-tag">LangGraph</span>
+          <span class="proj-tag">smolagents</span><span class="proj-tag">FAISS</span>
           <span class="proj-tag">Gradio</span>
         </div>
         <div class="proj-links">
-          <a href="https://github.com/452aman" target="_blank" class="proj-link">
+          <a href="https://github.com/452aman/code-review-agent" target="_blank" class="proj-link">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
             GitHub
           </a>
@@ -585,21 +580,20 @@
         </div>
       </div>
 
-      <div class="proj-card" onclick="window.open('https://github.com/452aman','_blank')">
+      <div class="proj-card" onclick="window.open('https://github.com/452aman/lost_and_found','_blank')">
         <div class="proj-icon" style="background:rgba(74,222,128,0.12);">📋</div>
         <div class="proj-title">LostFound — Campus Lost & Found Board</div>
         <p class="proj-desc">
-          A full-stack web app built with Flask and SQLite to digitise the lost-and-found process
-          for 5000+ students at IIT Roorkee. RESTful handlers, category-based filtering, claim workflows,
-          and a mobile-friendly frontend — replacing scattered WhatsApp groups.
+          <strong style="color:var(--text);">Problem:</strong> Lost items on campus went unresolved because there was no shared place to post or search — just scattered WhatsApp messages nobody tracked.<br><br>
+          Sole-developed a full-stack web app from scratch: Flask REST backend, normalised SQLite database with SQLAlchemy ORM, and a responsive JavaScript frontend deployed on the campus network. After launch, identified the core product gap through direct user conversations and rebuilt the entire category system in one day. Open-sourced on GitHub with full documentation.
         </p>
         <div class="proj-tags">
           <span class="proj-tag">Python</span><span class="proj-tag">Flask</span>
-          <span class="proj-tag">SQLite</span><span class="proj-tag">HTML/CSS</span>
-          <span class="proj-tag">Jinja2</span>
+          <span class="proj-tag">SQLite</span><span class="proj-tag">JavaScript</span>
+          <span class="proj-tag">HTML5/CSS3</span>
         </div>
         <div class="proj-links">
-          <a href="https://github.com/452aman" target="_blank" class="proj-link">
+          <a href="https://github.com/452aman/lost_and_found" target="_blank" class="proj-link">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
             GitHub
           </a>
@@ -672,17 +666,17 @@
 </section>
 
 <footer>
-  <p>Built by Aman Kumar · IIT Roorkee '26</p>
+  <p>Built by Aman Kumar · IIT Roorkee Graduate</p>
 </footer>
 
 <script>
   /* Typewriter */
   const phrases = [
-    "Building RAG pipelines...",
-    "Designing Agentic AI workflows...",
-    "Shipping LLM-powered APIs...",
-    "Solving hard problems in C++...",
-    "Turning ideas into production systems.",
+    "Building AI agents for real businesses...",
+    "Designing RAG pipelines that don't hallucinate...",
+    "Shipping LangGraph workflows to production...",
+    "Turning messy data into structured intelligence.",
+    "Solving hard problems in Python and C++...",
   ];
   let pi = 0, ci = 0, deleting = false;
   const el = document.getElementById('typewriter');
