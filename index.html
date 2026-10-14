@@ -140,6 +140,43 @@
   .when { font-family: var(--font-m); font-size: 0.7rem; color: var(--muted); }
   @media (max-width: 900px) { .proj.big, .proj.sm, .proj.half { grid-column: span 6; } }
 
+
+  /* ---------- project showcase ---------- */
+  .case { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3.4rem; align-items: center; margin-bottom: 7rem; --c: var(--cyan); }
+  .case.flip .shot { order: 2; }
+  .case .k { font-family: var(--font-m); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); margin-bottom: 0.8rem; }
+  .case h3 { font-family: var(--font-d); font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 0.9rem; }
+  .case .pitch { color: #b5b9d1; font-size: 1.02rem; margin-bottom: 1.2rem; }
+  .points { list-style: none; display: grid; gap: 0.6rem; margin-bottom: 1.4rem; }
+  .points li { position: relative; padding-left: 1.5rem; color: #c3c7de; font-size: 0.93rem; }
+  .points li::before { content: ''; position: absolute; left: 0; top: 0.5em; width: 8px; height: 8px; border-radius: 2px; background: var(--c); box-shadow: 0 0 12px var(--c); }
+  .points b { color: var(--text); font-weight: 500; }
+  .case .metrics { margin-bottom: 1.3rem; }
+  .case .metric { border-color: color-mix(in srgb, var(--c) 35%, transparent); background: color-mix(in srgb, var(--c) 9%, transparent); }
+  .case .metric b { color: var(--c); }
+  .case .tag-row { margin-bottom: 1.5rem; }
+  .case .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+
+  .shot { position: relative; }
+  .shot::before { content: ''; position: absolute; inset: 8% 4%; background: var(--c); filter: blur(70px); opacity: 0.22; border-radius: 40px; z-index: 0; transition: opacity 0.4s; }
+  .shot:hover::before { opacity: 0.38; }
+  .frame { position: relative; z-index: 1; border-radius: 14px; border: 1px solid rgba(255,255,255,0.14); background: #0b0d1f; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.9); transform: perspective(1500px) rotateY(var(--ry, -5deg)) rotateX(2deg); transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
+  .case.flip .frame { --ry: 5deg; }
+  .shot:hover .frame { transform: perspective(1500px) rotateY(0) rotateX(0) translateY(-4px); }
+  .frame-bar { display: flex; align-items: center; gap: 6px; padding: 0.55rem 0.9rem; background: rgba(255,255,255,0.05); border-bottom: 1px solid var(--line); }
+  .frame-bar i { width: 9px; height: 9px; border-radius: 50%; background: #ff5f57; } .frame-bar i:nth-child(2) { background: #febc2e; } .frame-bar i:nth-child(3) { background: #28c840; }
+  .frame-bar span { margin-left: 0.7rem; flex: 1; text-align: center; font-family: var(--font-m); font-size: 0.68rem; color: var(--muted); background: rgba(0,0,0,0.3); border-radius: 6px; padding: 0.15rem 0.5rem; margin-right: 2.2rem; }
+  .screens { position: relative; aspect-ratio: 16 / 10; background: #fff; }
+  .screens img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0; transition: opacity 0.5s; }
+  .screens img.on { opacity: 1; }
+  .thumbs { position: relative; z-index: 1; display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.1rem; }
+  .thumbs button { font-family: var(--font-m); font-size: 0.7rem; padding: 0.3rem 0.8rem; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.04); color: var(--muted); cursor: pointer; transition: 0.2s; }
+  .thumbs button:hover { color: var(--text); }
+  .thumbs button.on { color: #07081a; background: var(--c); border-color: var(--c); font-weight: 600; }
+  .mini { padding: 1.5rem 1.8rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; }
+  .mini h4 { font-family: var(--font-d); font-size: 1.15rem; margin-bottom: 0.3rem; } .mini p { color: var(--muted); font-size: 0.88rem; max-width: 640px; }
+  @media (max-width: 900px) { .case { grid-template-columns: 1fr; gap: 1.8rem; margin-bottom: 4.5rem; } .case.flip .shot { order: 0; } .frame, .case.flip .frame { transform: none; } }
+
   /* ---------- skills ---------- */
   .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
   .skill { padding: 1.5rem; }
@@ -241,45 +278,69 @@
 <section id="projects"><div class="wrap">
   <div class="reveal"><p class="eyebrow">Projects</p>
   <h2 class="title">Four systems, <span class="grad">built end to end.</span></h2>
-  <p class="lead">Each one is full-stack (FastAPI + React + TypeScript), tested, and runs with <code style="font-family:var(--font-m);color:var(--cyan)">docker compose up</code>. The numbers below are measured, not claimed.</p></div>
+  <p class="lead">Every project is full-stack (FastAPI + React + TypeScript), tested, and runs with <code style="font-family:var(--font-m);color:var(--cyan)">docker compose up</code>. Screenshots are the real apps running locally, and the numbers are measured.</p></div>
 
-  <div class="bento">
-    <article class="glass proj big reveal" data-href="https://github.com/452aman/rag-doc-intelligence" tabindex="0">
-      <div class="proj-top"><div class="tag-row"><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">FAISS</span><span class="pill">BM25</span><span class="pill">LangChain</span><span class="pill">SSE</span></div><span class="gh">GitHub ↗</span></div>
-      <h3>Legal Document Intelligence: RAG Platform</h3>
-      <p><b>Problem:</b> keyword search misses meaning and plain vector search misses exact terms, and answers nobody can verify are useless in legal work. <b>Built:</b> clause-aware chunking, hybrid retrieval (FAISS + BM25 fused with RRF, cross-encoder reranking), an LLM-extracted knowledge graph grounded against the source text, and streamed answers whose citations are validated server-side. A built-in benchmark compares five retrieval strategies, and the write-up says plainly that the graph did <i>not</i> improve retrieval.</p>
-      <div class="metrics"><div class="metric"><b>100%</b><span>hit@5, hybrid</span></div><div class="metric"><b>0.85</b><span>MRR with rerank</span></div><div class="metric"><b>~77%</b><span>fewer prompt tokens</span></div><div class="metric"><b>1–2 s</b><span>per answer</span></div></div>
-      <div class="flow"><span>Parse</span><em>→</em><span>Clause chunks</span><em>→</em><span>FAISS ‖ BM25</span><em>→</em><span>RRF</span><em>→</em><span class="hl">Rerank</span><em>→</em><span class="hl">Cited stream</span></div>
+    <article class="case  reveal" style="--c:var(--cyan)">
+      <div class="shot" data-gallery>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8082 · legal-doc-intelligence</span></div><div class="screens"><img src="assets/rag-1.webp" alt="Legal Document Intelligence screenshot: Ask" loading="lazy" class="on" /><img src="assets/rag-2.webp" alt="Legal Document Intelligence screenshot: Graph" loading="lazy" class="" /><img src="assets/rag-3.webp" alt="Legal Document Intelligence screenshot: Benchmark" loading="lazy" class="" /></div></div>
+        <div class="thumbs"><button class="on" data-i="0">Ask</button><button class="" data-i="1">Graph</button><button class="" data-i="2">Benchmark</button></div>
+      </div>
+      <div>
+        <div class="k">01 · RAG platform</div>
+        <h3>Legal Document Intelligence</h3>
+        <p class="pitch">Ask questions about contracts and get answers that cite the exact clause, with every citation checked by the server.</p>
+        <ul class="points"><li><b>Hybrid retrieval:</b> FAISS + BM25 fused with RRF, then a cross-encoder rerank.</li><li><b>Knowledge graph</b> of parties, dates and obligations, grounded against the source text.</li><li><b>Honest benchmark</b> of five retrieval strategies, including where the graph did not help.</li></ul>
+        <div class="metrics"><div class="metric"><b>100%</b><span>hit@5</span></div><div class="metric"><b>0.85</b><span>MRR</span></div><div class="metric"><b>~77%</b><span>fewer tokens</span></div><div class="metric"><b>1–2 s</b><span>per answer</span></div></div>
+        <div class="tag-row"><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">FAISS</span><span class="pill">LangChain</span><span class="pill">SSE</span></div>
+        <div class="actions"><a class="btn primary" href="https://github.com/452aman/rag-doc-intelligence" target="_blank" rel="noopener">View code ↗</a></div>
+      </div>
     </article>
-
-    <article class="glass proj sm reveal" style="--d:.08s" data-href="https://github.com/452aman/code-review-agent" tabindex="0">
-      <div class="proj-top"><div class="tag-row"><span class="pill">LangGraph</span><span class="pill">FastAPI</span><span class="pill">React</span></div><span class="gh">GitHub ↗</span></div>
-      <h3>Autonomous Code Review Agent</h3>
-      <p>Four specialist agents run in parallel, then a <b>verifier</b> drops findings on lines that don't exist and merges duplicates. Reviews GitHub PRs via an HMAC-verified webhook and posts inline comments.</p>
-      <div class="metrics"><div class="metric"><b>5–40 s</b><span>per review</span></div></div>
-      <div class="flow"><span>Static</span><em>→</em><span>FAISS</span><em>→</em><span class="hl">4 agents ‖</span><em>→</em><span class="hl">Verify</span></div>
+    <article class="case flip reveal" style="--c:var(--violet)">
+      <div class="shot" data-gallery>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8081 · code-review-agent</span></div><div class="screens"><img src="assets/cr-1.webp" alt="Autonomous Code Review Agent screenshot: Review" loading="lazy" class="on" /><img src="assets/cr-2.webp" alt="Autonomous Code Review Agent screenshot: Submit" loading="lazy" class="" /></div></div>
+        <div class="thumbs"><button class="on" data-i="0">Review</button><button class="" data-i="1">Submit</button></div>
+      </div>
+      <div>
+        <div class="k">02 · Multi-agent system</div>
+        <h3>Autonomous Code Review Agent</h3>
+        <p class="pitch">Paste code or a GitHub PR. Four specialist agents review in parallel, and a verifier throws out anything they hallucinated.</p>
+        <ul class="points"><li><b>LangGraph pipeline:</b> static analysis → FAISS guidance → 4 parallel agents → verifier.</li><li><b>GitHub integration:</b> HMAC-verified webhook, inline PR comments, changed-lines-only scope.</li><li><b>Live progress</b> over SSE, Monaco code viewer, findings triage.</li></ul>
+        <div class="metrics"><div class="metric"><b>5–40 s</b><span>per review</span></div><div class="metric"><b>4</b><span>parallel agents</span></div></div>
+        <div class="tag-row"><span class="pill">LangGraph</span><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">FAISS</span><span class="pill">Monaco</span></div>
+        <div class="actions"><a class="btn primary" href="https://github.com/452aman/code-review-agent" target="_blank" rel="noopener">View code ↗</a></div>
+      </div>
     </article>
-
-    <article class="glass proj half reveal" data-href="https://github.com/452aman/crm_backend" tabindex="0">
-      <div class="proj-top"><div class="tag-row"><span class="pill">LangGraph</span><span class="pill">Redux Toolkit</span><span class="pill">PostgreSQL</span><span class="pill">TypeScript</span></div><span class="gh">GitHub ↗</span></div>
-      <h3>AI-First CRM for Field Reps</h3>
-      <p><b>Problem:</b> the first agent trusted a user-typed rep ID and wrote straight to the database. <b>Built:</b> identity from the JWT, and every AI write is a <b>proposal the rep confirms</b>. Plus AI quick-log with an editable preview, at-risk doctor detection and a manager team view.</p>
-      <div class="flow"><span>Note</span><em>→</em><span>AI parse</span><em>→</em><span class="hl">Proposal</span><em>→</em><span class="hl">Confirm</span><em>→</em><span>Saved</span></div>
+    <article class="case  reveal" style="--c:var(--pink)">
+      <div class="shot" data-gallery>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8083 · ai-crm</span></div><div class="screens"><img src="assets/crm-1.webp" alt="AI-First CRM for Field Reps screenshot: Assistant" loading="lazy" class="on" /><img src="assets/crm-2.webp" alt="AI-First CRM for Field Reps screenshot: Dashboard" loading="lazy" class="" /><img src="assets/crm-3.webp" alt="AI-First CRM for Field Reps screenshot: Quick log" loading="lazy" class="" /></div></div>
+        <div class="thumbs"><button class="on" data-i="0">Assistant</button><button class="" data-i="1">Dashboard</button><button class="" data-i="2">Quick log</button></div>
+      </div>
+      <div>
+        <div class="k">03 · AI + human in the loop</div>
+        <h3>AI-First CRM for Field Reps</h3>
+        <p class="pitch">Describe a meeting in plain English. The assistant drafts the CRM entry, and nothing is saved until you confirm.</p>
+        <ul class="points"><li><b>Fixed a real flaw:</b> identity now comes from the JWT, not text the user types.</li><li><b>Confirm-before-write</b> for every AI action: log, edit, follow-up.</li><li><b>Rep and manager roles,</b> analytics, at-risk doctor detection, PostgreSQL verified.</li></ul>
+        <div class="metrics"><div class="metric"><b>9</b><span>agent tools</span></div><div class="metric"><b>10</b><span>tests</span></div><div class="metric"><b>2</b><span>roles</span></div></div>
+        <div class="tag-row"><span class="pill">LangGraph</span><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">Redux Toolkit</span><span class="pill">PostgreSQL</span><span class="pill">TypeScript</span></div>
+        <div class="actions"><a class="btn primary" href="https://github.com/452aman/crm_backend" target="_blank" rel="noopener">View code ↗</a></div>
+      </div>
     </article>
-
-    <article class="glass proj half reveal" style="--d:.08s" data-href="https://github.com/452aman/lost_and_found" tabindex="0">
-      <div class="proj-top"><div class="tag-row"><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">WebSockets</span><span class="pill">Alembic</span></div><span class="gh">GitHub ↗</span></div>
-      <h3>LostFound: Campus Platform</h3>
-      <p>First deployed on the IIT Roorkee campus network, now rebuilt: a <b>match engine</b> scores every report on text, category, place and timing; finders hold a secret detail so <b>claims are verified</b>; matches push over WebSockets. JWT with refresh rotation, audit log, 11 tests.</p>
-      <div class="flow"><span>Report</span><em>→</em><span class="hl">Match score</span><em>→</em><span class="hl">Claim check</span><em>→</em><span>Handoff</span></div>
+    <article class="case flip reveal" style="--c:var(--green)">
+      <div class="shot" data-gallery>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8080 · lostfound</span></div><div class="screens"><img src="assets/lf-1.webp" alt="LostFound: Campus Platform screenshot: Dashboard" loading="lazy" class="on" /><img src="assets/lf-2.webp" alt="LostFound: Campus Platform screenshot: Browse" loading="lazy" class="" /></div></div>
+        <div class="thumbs"><button class="on" data-i="0">Dashboard</button><button class="" data-i="1">Browse</button></div>
+      </div>
+      <div>
+        <div class="k">04 · Real-time platform</div>
+        <h3>LostFound: Campus Platform</h3>
+        <p class="pitch">First deployed on the IIT Roorkee campus network, now rebuilt as a real-time matching platform.</p>
+        <ul class="points"><li><b>Match engine</b> scores every report on text, category, place and timing.</li><li><b>Claim verification:</b> finders hold a secret detail, claimants must describe it.</li><li><b>WebSocket alerts,</b> JWT with refresh rotation, admin audit log, 11 tests.</li></ul>
+        <div class="metrics"><div class="metric"><b>4</b><span>signals scored</span></div><div class="metric"><b>11</b><span>tests</span></div></div>
+        <div class="tag-row"><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">WebSockets</span><span class="pill">SQLAlchemy</span><span class="pill">Alembic</span></div>
+        <div class="actions"><a class="btn primary" href="https://github.com/452aman/lost_and_found" target="_blank" rel="noopener">View code ↗</a></div>
+      </div>
     </article>
-  </div>
-
-  <div class="glass proj reveal" style="margin-top:1.2rem;cursor:default" aria-label="Another project">
-    <div class="proj-top"><div class="tag-row"><span class="pill">FastAPI</span><span class="pill">Groq LLM</span><span class="pill">Pydantic</span><span class="pill">python-docx</span></div><span class="when">May – Jun 2025</span></div>
-    <h3>Autonomous Document Generation Agent</h3>
-    <p>FastAPI backend that takes a plain-English request and runs a 4-step pipeline: document-type classification → task planning → parallel section execution → a self-reflection loop that scores each section 1–10 and rewrites anything below 7 (up to 2 iterations). Returns a formatted .docx and supports 7 auto-detected document types.</p>
-  </div>
+    <div class="glass mini reveal"><div><h4>Autonomous Document Generation Agent</h4><p>Plain-English request in, formatted .docx out: classify the document type, plan, write sections in parallel, then a self-reflection loop scores each section 1–10 and rewrites anything below 7.</p></div><div class="tag-row"><span class="pill">FastAPI</span><span class="pill">Groq LLM</span><span class="pill">Pydantic</span><span class="pill">python-docx</span></div></div>
 </div></section>
 
 <!-- SKILLS -->
@@ -379,6 +440,15 @@
   document.querySelectorAll('[data-href]').forEach(c => {
     const go = () => window.open(c.dataset.href, '_blank', 'noopener');
     c.addEventListener('click', go); c.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+  });
+
+
+  /* screenshot galleries */
+  document.querySelectorAll('[data-gallery]').forEach(g => {
+    const imgs = [...g.querySelectorAll('.screens img')], btns = [...g.querySelectorAll('.thumbs button')]; let cur = 0, timer;
+    const go = i => { cur = i; imgs.forEach((im, k) => im.classList.toggle('on', k === i)); btns.forEach((b, k) => b.classList.toggle('on', k === i)); };
+    btns.forEach((b, k) => b.addEventListener('click', () => { go(k); clearInterval(timer); }));
+    if (!reduce) timer = setInterval(() => { if (g.getBoundingClientRect().top < innerHeight && g.getBoundingClientRect().bottom > 0) go((cur + 1) % imgs.length); }, 4500);
   });
 
   /* cursor glow */
