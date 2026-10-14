@@ -523,19 +523,17 @@
         <div class="proj-title">Document Intelligence RAG Platform</div>
         <p class="proj-desc">
           <strong style="color:var(--text);">Problem:</strong> Enterprise document corpora are too large for keyword search, but simple vector search misses entity relationships buried across pages — leaving knowledge inaccessible.<br><br>
-          Architected a dual-index retrieval system: Neo4j knowledge graph for entity and relationship queries paired with FAISS for dense semantic search, with a query router selecting the right index per request. Built the full pipeline from PDF ingestion and HuggingFace embedding generation to Anthropic Claude-grounded responses with enforced source citations. Zero hallucinated references across 50+ page documents; sub-5-second query latency.
+          Built a RAG platform for contracts: clause-aware chunking, hybrid retrieval (FAISS dense + BM25, fused with reciprocal-rank fusion, reranked by a cross-encoder), and a knowledge graph of parties, dates, amounts and obligations used to route questions to the right contract. Answers stream token by token over SSE with server-validated clause citations. A built-in benchmark runs every retrieval strategy over 24 questions: hybrid reaches 100% hit@5, the reranker lifts top-1 accuracy to 0.75 (MRR 0.85), and top-5 context uses ~77% fewer prompt tokens than sending the whole corpus. React + FastAPI, end-to-end ~1-2 s per answer.
         </p>
         <div class="proj-tags">
-          <span class="proj-tag">Python</span><span class="proj-tag">LightRAG</span>
-          <span class="proj-tag">Neo4j</span><span class="proj-tag">FAISS</span>
-          <span class="proj-tag">HuggingFace</span><span class="proj-tag">Streamlit</span>
+          <span class="proj-tag">FastAPI</span><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">FAISS</span><span class="proj-tag">BM25 + Rerank</span><span class="proj-tag">LangChain</span><span class="proj-tag">Groq</span>
         </div>
         <div class="proj-links">
           <a href="https://github.com/452aman/rag-doc-intelligence" target="_blank" class="proj-link">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
             GitHub
           </a>
-          <span class="proj-link" style="color:var(--muted);cursor:default;">Jan – Mar 2025</span>
+          <span class="proj-link" style="color:var(--muted);cursor:default;">Rebuilt Oct 2026</span>
         </div>
       </div>
 
@@ -544,19 +542,17 @@
         <div class="proj-title">Autonomous Code Review Agent</div>
         <p class="proj-desc">
           <strong style="color:var(--text);">Problem:</strong> Code review at scale is slow and inconsistent — severity judgments vary across reviewers and there is no auditable record of why a vulnerability was flagged.<br><br>
-          Built a multi-step LangGraph ReAct agent with distributed tool calling: sandboxed code execution, FAISS-powered documentation retrieval, and web-search for CVE context. A post-generation validation node cross-checks every severity assignment against an explicit rule set before output is surfaced — same input, same output, every run. Structured JSON audit reports generated in under 60 seconds per analysis.
+          Built a LangGraph pipeline that reviews pasted code or GitHub pull requests: deterministic static analysis (AST + 17 rules) and FAISS-grounded retrieval feed four specialist agents (security, bugs, performance, maintainability) running in parallel. A verifier node rejects findings that point at nonexistent or unchanged lines, merges duplicates across agents and scores the result. Live pipeline progress streams to a React UI over SSE with a Monaco code viewer, findings triage, an HMAC-verified PR webhook that posts inline comments, and graceful degradation when the LLM is rate-limited. Reviews complete in 5-40 s.
         </p>
         <div class="proj-tags">
-          <span class="proj-tag">Python</span><span class="proj-tag">LangGraph</span>
-          <span class="proj-tag">smolagents</span><span class="proj-tag">FAISS</span>
-          <span class="proj-tag">Gradio</span>
+          <span class="proj-tag">FastAPI</span><span class="proj-tag">LangGraph</span><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">FAISS</span><span class="proj-tag">Monaco</span><span class="proj-tag">SSE</span>
         </div>
         <div class="proj-links">
           <a href="https://github.com/452aman/code-review-agent" target="_blank" class="proj-link">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
             GitHub
           </a>
-          <span class="proj-link" style="color:var(--muted);cursor:default;">Feb – Apr 2025</span>
+          <span class="proj-link" style="color:var(--muted);cursor:default;">Rebuilt Oct 2026</span>
         </div>
       </div>
 
@@ -565,19 +561,17 @@
         <div class="proj-title">LostFound — Campus Lost & Found Board</div>
         <p class="proj-desc">
           <strong style="color:var(--text);">Problem:</strong> Lost items on campus went unresolved because there was no shared place to post or search — just scattered WhatsApp messages nobody tracked.<br><br>
-          Sole-developed a full-stack web app from scratch: Flask REST backend, normalised SQLite database with SQLAlchemy ORM, and a responsive JavaScript frontend deployed on the campus network. After launch, identified the core product gap through direct user conversations and rebuilt the entire category system in one day. Open-sourced on GitHub with full documentation.
+          Sole-developed the original on the campus network and, after launch, rebuilt the category system in one day based on direct user feedback. Rebuilt in 2026 as a FastAPI + React platform: every report is auto-scored against opposite-side reports (text similarity, category, place, timing) and matches notify both parties over WebSockets; finders attach a hidden detail so claims are verified by similarity score before handoff; JWT auth with refresh rotation, rate limiting, EXIF-stripping image uploads, an admin console with audit log, Alembic migrations and 11 tests covering the full claim flow.
         </p>
         <div class="proj-tags">
-          <span class="proj-tag">Python</span><span class="proj-tag">Flask</span>
-          <span class="proj-tag">SQLite</span><span class="proj-tag">JavaScript</span>
-          <span class="proj-tag">HTML5/CSS3</span>
+          <span class="proj-tag">FastAPI</span><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">WebSockets</span><span class="proj-tag">SQLAlchemy</span><span class="proj-tag">Alembic</span><span class="proj-tag">Docker</span>
         </div>
         <div class="proj-links">
           <a href="https://github.com/452aman/lost_and_found" target="_blank" class="proj-link">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.86 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.14 20.65 22 16.8 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
             GitHub
           </a>
-          <span class="proj-link" style="color:var(--muted);cursor:default;">Oct – Nov 2024</span>
+          <span class="proj-link" style="color:var(--muted);cursor:default;">Rebuilt Oct 2026</span>
         </div>
       </div>
 
