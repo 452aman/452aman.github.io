@@ -277,70 +277,53 @@
 <!-- PROJECTS -->
 <section id="projects"><div class="wrap">
   <div class="reveal"><p class="eyebrow">Projects</p>
-  <h2 class="title">Four systems, <span class="grad">built end to end.</span></h2>
-  <p class="lead">Every project is full-stack (FastAPI + React + TypeScript), tested, and runs with <code style="font-family:var(--font-m);color:var(--cyan)">docker compose up</code>. Screenshots are the real apps running locally, and the numbers are measured.</p></div>
+  <h2 class="title">Three systems, <span class="grad">built end to end.</span></h2>
+  <p class="lead">Each one is full-stack (FastAPI + React + TypeScript), tested, and runs with <code style="font-family:var(--font-m);color:var(--cyan)">docker compose up</code>. Screenshots are the real apps running locally.</p></div>
 
-    <article class="case  reveal" style="--c:var(--cyan)">
+    <article class="case reveal" style="--c:var(--cyan)">
       <div class="shot" data-gallery>
-        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8082 · legal-doc-intelligence</span></div><div class="screens"><img src="assets/rag-1.webp" alt="Legal Document Intelligence screenshot: Ask" loading="lazy" class="on" /><img src="assets/rag-2.webp" alt="Legal Document Intelligence screenshot: Graph" loading="lazy" class="" /><img src="assets/rag-3.webp" alt="Legal Document Intelligence screenshot: Benchmark" loading="lazy" class="" /></div></div>
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8082 · legal-doc-intelligence</span></div><div class="screens"><img src="assets/rag-1.webp" alt="Legal Document Intelligence: RAG Platform screenshot: Ask" loading="lazy" class="on" /><img src="assets/rag-2.webp" alt="Legal Document Intelligence: RAG Platform screenshot: Graph" loading="lazy" class="" /><img src="assets/rag-3.webp" alt="Legal Document Intelligence: RAG Platform screenshot: Benchmark" loading="lazy" class="" /></div></div>
         <div class="thumbs"><button class="on" data-i="0">Ask</button><button class="" data-i="1">Graph</button><button class="" data-i="2">Benchmark</button></div>
       </div>
       <div>
         <div class="k">01 · RAG platform</div>
         <h3>Legal Document Intelligence: RAG Platform</h3>
-        <p class="pitch">Ask questions about contracts and get answers that cite the exact clause, with every citation checked by the server.</p>
-        <ul class="points"><li><b>Hybrid retrieval:</b> FAISS + BM25 fused with RRF, then a cross-encoder rerank.</li><li><b>Knowledge graph</b> of parties, dates and obligations, grounded against the source text.</li><li><b>Honest benchmark</b> of five retrieval strategies, including where the graph did not help.</li></ul>
-        <div class="metrics"><div class="metric"><b>100%</b><span>hit@5</span></div><div class="metric"><b>0.85</b><span>MRR</span></div><div class="metric"><b>~77%</b><span>fewer tokens</span></div><div class="metric"><b>1–2 s</b><span>per answer</span></div></div>
+        <p class="pitch">Ask questions about contracts and get answers that cite the exact clause they came from.</p>
+        <ul class="points"><li><b>Hybrid retrieval</b> that blends meaning and keywords, then re-ranks for precision.</li><li><b>Private workspaces</b> and side-by-side contract comparison.</li><li><b>Guarded against hidden instructions</b> in uploaded documents, and honest about what each retrieval stage adds.</li></ul>
         <div class="tag-row"><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">FAISS</span><span class="pill">LangChain</span><span class="pill">SSE</span></div>
         <div class="actions"><a class="btn primary" href="https://github.com/452aman/rag-doc-intelligence" target="_blank" rel="noopener">View code ↗</a></div>
       </div>
     </article>
-    <article class="case flip reveal" style="--c:var(--violet)">
-      <div class="shot" data-gallery>
-        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8081 · code-review-agent</span></div><div class="screens"><img src="assets/cr-1.webp" alt="Autonomous Code Review Agent screenshot: Review" loading="lazy" class="on" /><img src="assets/cr-2.webp" alt="Autonomous Code Review Agent screenshot: Submit" loading="lazy" class="" /></div></div>
-        <div class="thumbs"><button class="on" data-i="0">Review</button><button class="" data-i="1">Submit</button></div>
-      </div>
-      <div>
-        <div class="k">02 · Multi-agent system</div>
-        <h3>Autonomous Code Review Agent</h3>
-        <p class="pitch">Paste code or a GitHub PR. Four specialist agents review in parallel, and a verifier throws out anything they hallucinated.</p>
-        <ul class="points"><li><b>LangGraph pipeline:</b> static analysis → FAISS guidance → 4 parallel agents → verifier.</li><li><b>GitHub integration:</b> HMAC-verified webhook, inline PR comments, changed-lines-only scope.</li><li><b>Live progress</b> over SSE, Monaco code viewer, findings triage.</li></ul>
-        <div class="metrics"><div class="metric"><b>5–40 s</b><span>per review</span></div><div class="metric"><b>4</b><span>parallel agents</span></div></div>
-        <div class="tag-row"><span class="pill">LangGraph</span><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">FAISS</span><span class="pill">Monaco</span></div>
-        <div class="actions"><a class="btn primary" href="https://github.com/452aman/code-review-agent" target="_blank" rel="noopener">View code ↗</a></div>
-      </div>
-    </article>
-    <article class="case  reveal" style="--c:var(--pink)">
+    <article class="case flip reveal" style="--c:var(--pink)">
       <div class="shot" data-gallery>
         <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8083 · ai-crm</span></div><div class="screens"><img src="assets/crm-1.webp" alt="AI-First CRM for Field Reps screenshot: Assistant" loading="lazy" class="on" /><img src="assets/crm-2.webp" alt="AI-First CRM for Field Reps screenshot: Dashboard" loading="lazy" class="" /><img src="assets/crm-3.webp" alt="AI-First CRM for Field Reps screenshot: Quick log" loading="lazy" class="" /></div></div>
         <div class="thumbs"><button class="on" data-i="0">Assistant</button><button class="" data-i="1">Dashboard</button><button class="" data-i="2">Quick log</button></div>
       </div>
       <div>
-        <div class="k">03 · AI + human in the loop</div>
+        <div class="k">02 · AI + human in the loop</div>
         <h3>AI-First CRM for Field Reps</h3>
-        <p class="pitch">Describe a meeting in plain English. The assistant drafts the CRM entry, and nothing is saved until you confirm.</p>
-        <ul class="points"><li><b>Fixed a real flaw:</b> identity now comes from the JWT, not text the user types.</li><li><b>Confirm-before-write</b> for every AI action: log, edit, follow-up.</li><li><b>Rep and manager roles,</b> analytics, at-risk doctor detection, PostgreSQL verified.</li></ul>
-        <div class="metrics"><div class="metric"><b>9</b><span>agent tools</span></div><div class="metric"><b>10</b><span>tests</span></div><div class="metric"><b>2</b><span>roles</span></div></div>
+        <p class="pitch">Describe a meeting in plain English and the assistant drafts the CRM entry. Nothing is saved until you confirm.</p>
+        <ul class="points"><li><b>Every AI action is a proposal</b> the rep approves first.</li><li><b>Identity comes from the signed-in user,</b> never from the prompt.</li><li><b>Roles, analytics</b> and detection of neglected accounts.</li></ul>
         <div class="tag-row"><span class="pill">LangGraph</span><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">Redux Toolkit</span><span class="pill">PostgreSQL</span><span class="pill">TypeScript</span></div>
         <div class="actions"><a class="btn primary" href="https://github.com/452aman/crm_backend" target="_blank" rel="noopener">View code ↗</a></div>
       </div>
     </article>
-    <article class="case flip reveal" style="--c:var(--green)">
+    <article class="case reveal" style="--c:var(--green)">
       <div class="shot" data-gallery>
         <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>localhost:8080 · lostfound</span></div><div class="screens"><img src="assets/lf-1.webp" alt="LostFound: Campus Platform screenshot: Dashboard" loading="lazy" class="on" /><img src="assets/lf-2.webp" alt="LostFound: Campus Platform screenshot: Browse" loading="lazy" class="" /></div></div>
         <div class="thumbs"><button class="on" data-i="0">Dashboard</button><button class="" data-i="1">Browse</button></div>
       </div>
       <div>
-        <div class="k">04 · Real-time platform</div>
+        <div class="k">03 · Real-time platform</div>
         <h3>LostFound: Campus Platform</h3>
-        <p class="pitch">First deployed on the IIT Roorkee campus network, now rebuilt as a real-time matching platform.</p>
-        <ul class="points"><li><b>Match engine</b> scores every report on text, category, place and timing.</li><li><b>Claim verification:</b> finders hold a secret detail, claimants must describe it.</li><li><b>WebSocket alerts,</b> JWT with refresh rotation, admin audit log, 11 tests.</li></ul>
-        <div class="metrics"><div class="metric"><b>4</b><span>signals scored</span></div><div class="metric"><b>11</b><span>tests</span></div></div>
+        <p class="pitch">First deployed on a campus network, now rebuilt as a real-time matching platform.</p>
+        <ul class="points"><li><b>Automatic matching</b> of lost and found reports.</li><li><b>Claims verified</b> with a detail only the true owner would know.</li><li><b>Live notifications</b> and an admin audit trail.</li></ul>
         <div class="tag-row"><span class="pill">FastAPI</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">WebSockets</span><span class="pill">SQLAlchemy</span><span class="pill">Alembic</span></div>
         <div class="actions"><a class="btn primary" href="https://github.com/452aman/lost_and_found" target="_blank" rel="noopener">View code ↗</a></div>
       </div>
     </article>
-    <div class="glass mini reveal"><div><h4>Autonomous Document Generation Agent</h4><p>Plain-English request in, formatted .docx out: classify the document type, plan, write sections in parallel, then a self-reflection loop scores each section 1–10 and rewrites anything below 7.</p></div><div class="tag-row"><span class="pill">FastAPI</span><span class="pill">Groq LLM</span><span class="pill">Pydantic</span><span class="pill">python-docx</span></div></div>
+<div class="glass mini reveal"><div><h4>Autonomous Document Generation Agent</h4><p>Plain-English request in, formatted .docx out: classify the document type, plan, write sections in parallel, then a self-reflection loop scores each section 1–10 and rewrites anything below 7.</p></div><div class="tag-row"><span class="pill">FastAPI</span><span class="pill">Groq LLM</span><span class="pill">Pydantic</span><span class="pill">python-docx</span></div></div>
+
 </div></section>
 
 <!-- SKILLS -->
